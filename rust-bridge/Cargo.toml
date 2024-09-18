@@ -1,0 +1,23 @@
+[package]
+name = "bridge"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+# If you only wanted dynamic library, you'd use only "cdylib".
+# If you only wanted static library, you'd use only "staticlib".
+# This demo shows both. See https://doc.rust-lang.org/reference/linkage.html
+# for more information.
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+libc = "0.2.146"
+serde = { version = "1.0.104", features = ["derive"] }
+serde_json = "1.0.96"
+tokio = { version = "1.28.2", features = ["full"] }
+tracing = "0.1.37"
+crossbeam = "0.8.2"
+
+[build-dependencies]
+cbindgen = "0.24.5"
